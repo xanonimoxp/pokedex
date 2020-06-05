@@ -1,21 +1,80 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">
+  {{title}}
+  </a>
+</nav>
+<!--<form>-->
+  <div class="col-md-8 mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <!--aqui va el input-->
+          <input type="text"  class="form-control" id="Busqueda" placeholder="Introduzca" aria-describedby="emailHelp" [(ngModel)]="NombrePokeBuscar">
+        </div>
+        <a class="btn btn-primary" [routerLink]="[ '/test', NombrePokeBuscar ]">Buscar</a>
+        <!--el que debe de ser--> 
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{TipoInicial}}
+          </button>
+          
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><!--
+            <a *ngFor="let tipo of TiposArray" class="dropdown-item" href="tipo/{{tipo.referencia}}"
+            (click)='BuscarTipo(tipo.tipo)'  >{{tipo.tipo}}</a>-->
+            <a *ngFor="let tipo of TiposArray" class="dropdown-item" [routerLink]="[ 'tipo/',tipo.referencia]"
+            (click)='BuscarTipo(tipo.tipo)'  >{{tipo.tipo}}</a>
+            <!-- (click)='BuscarTipo(tipo.referencia,tipo.tipo)'
+            <a class="dropdown-item" href="test">Normal</a>
+            <a class="dropdown-item" href="type/fighting">Lucha</a>
+            <a class="dropdown-item" href="type/flying">Volador</a>
+            <a class="dropdown-item" href="type/poison">Veneno</a>
+            <a class="dropdown-item" href="type/ground">Tierra</a>
+            <a class="dropdown-item" href="type/rock">Roca</a>
+            <a class="dropdown-item" (click)="BuscarTipo()" href="type/bug">Bicho</a>
+            <a class="dropdown-item" href="type/ghost">Fantasma</a>
+            <a class="dropdown-item" href="type/steel">Acero</a>
+            <a class="dropdown-item" href="type/fire">fuego</a>
+            <a class="dropdown-item" href="type/water">Agua</a>
+            <a class="dropdown-item" href="type/grass">planta</a>
+            <a class="dropdown-item" href="type/electric">Electrico</a>
+            <a class="dropdown-item" href="type/psychic">Psiquico</a>
+            <a class="dropdown-item" href="type/ice">Hielo</a>
+            <a class="dropdown-item" href="type/dragon">Dragon</a>
+            <a class="dropdown-item" href="type/dark">Siniestro</a>
+            <a class="dropdown-item" href="type/fairy">Hada</a>
+            <a class="dropdown-item" href="type/unknown">Desconocido</a>
+            <a class="dropdown-item" href="type/shadow">shadow</a>
+            -->
+          </div>
+        </div>
+        <!--aqui termina el otro--> 
+      </div>
+    </div>
+  </div>
+<!--</form>-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+<!--
+<div *ngIf="PokeLista">
+  <div class="row card-group">
+<div  *ngFor="let pok of PokeLista.pokemon" >
+<div class="col-md-8 mt-4">
+  <div class="card" style="width: 10rem;">
+    <img src={{URLImagen(pok.pokemon.url)}} class="card-img-top" >
+    <div class="card-body">
+      <h5 class="card-title">{{pok.pokemon.name}}</h5>
+      <p class="card-text">Número de pokedex: {{NumPokedex(pok.pokemon.url)}}</p>
+      <a href="test/{{NumPokedex(pok.pokemon.url)}}" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+-->
+</div>
+<router-outlet >
+</router-outlet>
+
+

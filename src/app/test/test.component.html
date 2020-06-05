@@ -1,0 +1,58 @@
+<div style="text-align:center">
+  <div class="container center_div">
+  <div class="col-md-8 mt-4">
+  <div class="card">
+    <div class="container center_div">
+    <img src={{PokemonImagenURL}} class="card-img-top"  style="max-width: 200px;height: auto;"></div>
+    <div class="card-body">
+      <h5 class="card-title">{{PokemonN.name}}</h5>
+      <p class="card-text">Número de pokedex: {{PokemonN.id}}</p>
+      <a  class="btn btn-primary" (click)="CambiarImagen('Normal')">Normal</a>
+      <a  class="btn btn-primary" (click)="CambiarImagen('Shiny')">shiny</a>
+      <a *ngIf="PokemonN.sprites.front_female"  class="btn btn-primary" (click)="CambiarImagen('NormalF')">Normal<span>&#9792;</span></a>
+      <a *ngIf="PokemonN.sprites.front_shiny_female"  class="btn btn-primary" (click)="CambiarImagen('ShinyF')">shiny<span>&#9792;</span></a>
+
+      <p></p>
+
+<table class="table">
+<!--
+  <tbody>
+    <tr *ngFor="let pok of PokemonN.stats">
+      <td class="text-left">{{pok.stat.name}}</td>
+      <td>{{pok.base_stat}}</td>
+    </tr>
+  </tbody>-->
+  <div class="chart">
+    <canvas
+        baseChart
+        [chartType]="'horizontalBar'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [colors]="barChartColors"
+        [legend]="false">
+    </canvas>
+  </div>
+  
+</table>
+<!---->
+    <a *ngFor="let pok of TipoDelPokemon" [routerLink]="[ '../../tipo/',pok.referencia]">
+      <img  [src]="pok.UrlImagenTipo" ></a>
+        <!--
+    <a *ngFor="let pok of TipoDelPokemon" [src]="pok">a</a>
+      <img [src]="pok" class="col-sm">-->
+    
+  </div>
+  <div class="one" [innerHtml]="htmlToAdd"></div>
+  </div>
+</div>
+</div>
+</div><!--
+<ul class="list-group">
+  <li *ngfor="let version of PokemonN.game_indices" class="list-group-item">{{version.version.name}}</li>  
+</ul>-->
+<!--
+<ul class="list-group" ></ul>
+<ul class="list-group">
+  <a *ngFor="let version of PokemonN.game_indices" class="list-group-item">{{version.version.name}}</a>  
+</ul>-->

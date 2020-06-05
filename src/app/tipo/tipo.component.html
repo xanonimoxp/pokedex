@@ -1,0 +1,21 @@
+
+<div style="text-align:center">
+  <div *ngIf="PokeLista">
+    <div class="row card-group">
+  <div  *ngFor="let pok of PokeLista.pokemon" >
+  <div class="col-md-8 mt-4">
+    <div class="card" style="width: 10rem;">
+      <img src={{URLImagen(pok.pokemon.url)}} onerror="this.src='https://vignette.wikia.nocookie.net/es.pokemon/images/d/d8/MissingNo..png/revision/latest?cb=20160304145740';" class="card-img-top" >
+      <div class="card-body">
+        <h5 class="card-title">{{pok.pokemon.name}}</h5>
+        <p class="card-text">Número de pokedex: {{NumPokedex(pok.pokemon.url)}}</p>
+        <!--<a  href="test/{{NumPokedex(pok.pokemon.url)}}" class="btn btn-primary">Go somewhere</a>-->
+        <a  [routerLink]="[ '../../test/',NumPokedex(pok.pokemon.url)]" class="btn btn-primary">Más Información</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
